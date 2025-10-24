@@ -1,84 +1,6 @@
-'''
+import sys
 
-Length / Distance
-
-1 inch = 2.54 cm
-
-1 foot = 12 inches
-
-1 yard = 3 feet
-
-1 mile = 5280 feet
-
-1 centimeter = 0.01 meter
-
-1 meter = 100 centimeters
-
-1 kilometer = 1000 meters
-
-1 mile ≈ 1.60934 kilometers
-
-Mass / Weight
-
-1 ounce = 28.3495 grams
-
-1 pound = 16 ounces
-
-1 pound ≈ 0.453592 kilograms
-
-1 kilogram = 1000 grams
-
-1 ton (US) = 2000 pounds
-
-1 ton (metric) = 1000 kilograms
-
-Volume / Capacity
-
-1 teaspoon = 5 milliliters
-
-1 tablespoon = 3 teaspoons
-
-1 fluid ounce = 2 tablespoons
-
-1 cup = 8 fluid ounces
-
-1 pint = 2 cups
-
-1 quart = 2 pints
-
-1 gallon = 4 quarts
-
-1 liter = 1000 milliliters
-
-Time
-
-1 minute = 60 seconds
-
-1 hour = 60 minutes
-
-1 day = 24 hours
-
-1 week = 7 days
-
-1 year ≈ 365.25 days
-
-Temperature
-
-Celsius to Fahrenheit: °F = (°C × 9/5) + 32
-
-Fahrenheit to Celsius: °C = (°F − 32) × 5/9
-
-Celsius to Kelvin: K = °C + 273.15
-
-'''
-
-print("Unit Converter")
-
-#txt = input("Usage: unit1name unit1value unit2name: ").split()
-#if len(txt) != 3: print("Bad Input")
-
-def doround(v):
-	return round(v, 2)
+# Converters
 
 #Temperature
 
@@ -175,23 +97,60 @@ def ton_kg(ton):
 def kg_ton(kg):
 	return doround(kg / 1000)
 
+# Show units
+
+def show_units():
+	print("\n=== Supported Units ===")
+	print("\n🌡️  Temperature:")
+	print("  c  → Celsius")
+	print("  f  → Fahrenheit")
+	print("  k  → Kelvin")
+
+	print("\n⏰  Time:")
+	print("  d  → Days")
+	print("  h  → Hours")
+	print("  m  → Minutes")
+	print("  s  → Seconds")
+
+	print("\n📏  Distance:")
+	print("  inch  → Inches")
+	print("  cm    → Centimeters")
+	print("  foot  → Feet")
+	print("  feet  → Feet (alias)")
+	print("  yard  → Yards")
+	print("  mile  → Miles")
+	print("  m     → Meters")
+	print("  km    → Kilometers")
+
+	print("\n⚖️  Mass / Weight:")
+	print("  ounce     → Ounces")
+	print("  gram      → Grams")
+	print("  pound     → Pounds")
+	print("  kg        → Kilograms")
+	print("  ton       → Metric Tons")
+	print("  ton_imp   → Imperial Tons")
+
+	print("\n💡 Example usage:")
+	print("  python unit_converter.py 10 c f")
+	print("  python unit_converter.py 5 km mile\n")
+
+
 #Tester
 
 def test(v1, n1, func, n2):
 	print(v1, n1.upper(), '=', func(v1), n2.upper())
-	
-# Parser (The actual Program)
-
-#input: 2 C F -> c_f(2)
-import sys
 
 def chk(u1, v1, u2, v2):
 	return u1 == v1 and u2 == v2
 
+def doround(v):
+	return round(v, 2)
+
+# (The actual Program)
 def run():
-	USAGE = "2 C F"
+	USAGE = "Put args like 32 C F"
 	if len(sys.argv) != 4:
-		print(USAGE); exit();
+		print(USAGE); show_units(); exit();
 	u1 = sys.argv[2].lower()
 	u2 = sys.argv[3].lower()
 	try:
@@ -199,6 +158,8 @@ def run():
 	except Exception as e:
 		print(e); exit()
 
+	print("Unit Converter")
+	f = None #Dummy to check
 	# Conversion mapping logic
 
 	# --- Temperature ---
@@ -249,8 +210,8 @@ def run():
 	if chk(u1, 'pound', u2, 'ton_imp'): f = pound_imp_ton
 	if chk(u1, 'ton', u2, 'kg'): f = ton_kg
 	if chk(u1, 'kg', u2, 'ton'): f = kg_ton
-
-	test(v1, u1, f, u2)
+	
+	if f: test(v1, u1, f, u2)
 run()
 
 ################################################
