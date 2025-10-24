@@ -104,16 +104,23 @@ def h_d(h):
 	return doround(h / 24)
 def h_m(h):
 	return 60 * h
-def m_h(h):
-	return doround(h / 60)
+def m_h(m):
+	return doround(m / 60)
 def m_s(m):
 	return 60 * m
 def s_m(s):
 	return doround(s / 60)
+def s_h(s):
+	return doround(s / 60 / 60)
+def d_m(d):
+	return h_m(d_h(d))
+def m_d(m):
+	return h_d(m_h(m))
 def d_s(d): # days in seconds = days - hours - minutes - seconds
-	return m_s(h_m(d_h(d)))
+	return m_s(d_m(d))
 def s_d(s): # seconds in days = seconds - minutes - hours - days
-	return h_d(m_h(s_m(s)))
+	return h_d(s_h(s))
+
 	
 #Distance
 
@@ -148,18 +155,6 @@ def km_mile(km):
 	
 #Mass / Weight
 
-'''1 ounce = 28.3495 grams
-
-1 pound = 16 ounces
-
-1 pound ≈ 0.453592 kilograms
-
-1 kilogram = 1000 grams
-
-1 ton (US) = 2000 pounds
-
-1 ton (metric) = 1000 kilograms'''
-
 def ounce_gram(ounce):
 	return ounce * 28.3495
 def gram_ounce(gram):
@@ -189,8 +184,14 @@ def test(v1, n1, func, n2):
 
 ################################################
 
-test(1, 'ton', ton_kg, 'kg')
-test(ton_kg(1), 'kg', kg_ton, 'ton')
+test(1, 'D', d_s, 's')
+test(d_s(1), 's', s_d, 'D')
+
+#test(1, 'D', d_m, 'min')
+#test(d_m(1), 'min', m_d, 'D')
+
+#test(1, 'ton', ton_kg, 'kg')
+#test(ton_kg(1), 'kg', kg_ton, 'ton')
 
 #test(1, 'ton', ton_imp_pound, 'pound')
 #test(ton_imp_pound(1), 'pound', pound_imp_ton, 'ton')
@@ -200,6 +201,9 @@ test(ton_kg(1), 'kg', kg_ton, 'ton')
 
 #test(1, 'pound', pound_ounce, 'ounce')
 #test(pound_ounce(1), 'ounce', ounce_pound, 'pound')
+
+#test(1, 'ounce', ounce_gram2, 'gram')
+#test(ounce_gram(1), 'gram', gram_ounce2, 'ounce')
 
 #test(1, 'ounce', ounce_gram, 'gram')
 #test(ounce_gram(1), 'gram', gram_ounce, 'ounce')
