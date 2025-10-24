@@ -212,6 +212,7 @@ def run():
 	if chk(u1, 'kg', u2, 'ton'): f = kg_ton
 	
 	if f: test(v1, u1, f, u2)
+	else: print("Your input was not valid"); exit();
 run()
 
 ################################################
