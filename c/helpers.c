@@ -6,7 +6,7 @@
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:24:51 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 14:40:38 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:03:23 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "uc.h"
 
-char *to_lower(char *s)
+char	*to_lower(char *s)
 {
 	int		i;
 	char	*lower;
@@ -32,7 +32,7 @@ char *to_lower(char *s)
 	return (lower);
 }
 
-double doround(double v)
+double	doround(double v)
 {
 	return (v);
 }

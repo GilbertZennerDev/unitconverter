@@ -17,27 +17,28 @@ void	output(double v1, char *n1, double (*f)(double), char *n2)
 	printf("%f %s = %f %s\n", v1, n1, f(v1), n2);
 }
 
-MathFuncPtr get_function(const char *key)
+MathFuncPtr	get_function(const char *key)
 {
 	int	i;
 
 	i = 0;
-	while (function_map[i].key != NULL)
+	while (g_function_map[i].key != NULL)
 	{
-		if (strcmp(function_map[i].key, key) == 0)
-			return (function_map[i].func);
+		if (strcmp(g_function_map[i].key, key) == 0)
+			return (g_function_map[i].func);
 	}
 	return (NULL);
 }
 
 void	run(int ac, char **av)
 {
-	t_main	data;
+	t_main		data;
+	MathFuncPtr	func_to_call;
 
 	printf("Unit Converter.\n");
 	checkargs(ac);
 	save_values(av, &data);
-	MathFuncPtr func_to_call = get_function(data.str2);
+	func_to_call = get_function(data.str2);
 	if (func_to_call != NULL)
 		output(data.v1, data.u1, func_to_call, data.u2);
 	else

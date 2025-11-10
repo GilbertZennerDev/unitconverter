@@ -6,13 +6,13 @@
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:35:51 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 14:37:58 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:59:11 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "uc.h"
 
-void free_data(t_main *data)
+void	free_data(t_main *data)
 {
 	free(data->u1);
 	free(data->u2);

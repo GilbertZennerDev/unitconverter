@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass.c                                             :+:      :+:    :+:   */
+/*   mass2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:00 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:05:51 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 #include "uc.h"
 
-double	ounce_gram(double ounce)
+double	gram_kg(double gram)
 {
-	return (ounce * 28.3495);
+	return (doround(gram / 1000));
 }
 
-double	gram_ounce(double gram)
+double	ton_imp_pound(double ton)
 {
-	return (doround(gram / 28.3495));
+	return (ton * 2000);
 }
 
-double	pound_ounce(double pound)
+double	pound_imp_ton(double pound)
 {
-	return (pound * 16);
+	return (doround(pound / 2000));
 }
 
-double	ounce_pound(double ounce)
+double	ton_kg(double ton)
 {
-	return (doround(ounce / 16));
+	return (ton * 1000);
 }
 
-double	kg_gram(double kg)
+double	kg_ton(double kg)
 {
-	return (kg * 1000);
+	return (doround(kg / 1000));
 }

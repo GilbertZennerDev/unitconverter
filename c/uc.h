@@ -6,7 +6,7 @@
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:25:32 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 14:39:05 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:15:02 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_main {
 	double	result;
 }	t_main;
 
-extern DispatchEntry function_map[];
+extern DispatchEntry g_function_map[];
 
 // Helpers
 
