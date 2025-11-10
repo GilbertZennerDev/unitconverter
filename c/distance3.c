@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   distance.c                                         :+:      :+:    :+:   */
+/*   distance3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:32:18 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:18:02 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:18:52 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 
 #include "uc.h"
 
-double	inch_cm(double i)
+double	km_m(double km)
 {
-	return (i * 2.54);
+	return (km * 1000);
 }
 
-double	cm_inch(double c)
+double	m_km(double m)
 {
-	return (doround(c / 2.54));
+	return (doround(m / 1000));
 }
 
-double	foot_inch(double f)
+double	mile_km(double mile)
 {
-	return (f * 12);
+	return (mile * 1.60934);
 }
 
-double	inch_foot(double i)
+double	km_mile(double km)
 {
-	return (doround(i / 12));
-}
-
-double	yard_feet(double y)
-{
-	return (y * 3);
+	return (doround(km / 1.60934));
 }
