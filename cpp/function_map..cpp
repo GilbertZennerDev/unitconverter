@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "uc.h"
+#include "uc.hpp"
 
 t_dispatchentry	g_function_map[] = {
 	// --- Temperature Conversions ---

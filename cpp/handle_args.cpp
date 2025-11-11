@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass.c                                             :+:      :+:    :+:   */
+/*   handle_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:00 by gzenner          ###   ########.fr       */
+/*   Created: 2025/11/10 14:36:21 by gzenner           #+#    #+#             */
+/*   Updated: 2025/11/11 16:29:24 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#Mass / Weight
+#include "uc.hpp"
 
-#include "uc.h"
-
-double	ounce_gram(double ounce)
+void	checkargs(int ac)
 {
-	return (ounce * 28.3495);
+	if (ac != 4)
+	{
+		printf("Put args like 32 C F");
+		show_units();
+		exit(1);
+	}
 }
 
-double	gram_ounce(double gram)
+void	save_values(char **av, t_main *data)
 {
-	return (doround(gram / 28.3495));
-}
-
-double	pound_ounce(double pound)
-{
-	return (pound * 16);
-}
-
-double	ounce_pound(double ounce)
-{
-	return (doround(ounce / 16));
-}
-
-double	kg_gram(double kg)
-{
-	return (kg * 1000);
+	data->u1 = to_lower(av[2]);
+	data->u2 = to_lower(av[3]);
+	data->v1 = atoi(av[1]);
+	data->str1 = strcat(data->u1, "_");
+	data->str2 = strcat(data->str1, data->u2);
 }

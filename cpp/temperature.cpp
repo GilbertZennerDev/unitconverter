@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass.c                                             :+:      :+:    :+:   */
+/*   temperature.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:00 by gzenner          ###   ########.fr       */
+/*   Created: 2025/11/10 13:27:24 by gzenner           #+#    #+#             */
+/*   Updated: 2025/11/11 16:29:24 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#Mass / Weight
+//#Temperature
 
-#include "uc.h"
+#include "uc.hpp"
 
-double	ounce_gram(double ounce)
+double	c_f(double c)
 {
-	return (ounce * 28.3495);
+	return (doround((c * 9 / 5.0 + 32)));
 }
 
-double	gram_ounce(double gram)
+double	f_c(double f)
 {
-	return (doround(gram / 28.3495));
+	return (doround((f - 32) / (9.0 / 5)));
 }
 
-double	pound_ounce(double pound)
+double	c_k(double c)
 {
-	return (pound * 16);
-}
-
-double	ounce_pound(double ounce)
-{
-	return (doround(ounce / 16));
-}
-
-double	kg_gram(double kg)
-{
-	return (kg * 1000);
+	return (doround(c + 273.15));
 }

@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass.c                                             :+:      :+:    :+:   */
+/*   time_uc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:00 by gzenner          ###   ########.fr       */
+/*   Created: 2025/11/10 13:28:12 by gzenner           #+#    #+#             */
+/*   Updated: 2025/11/11 16:29:24 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#Mass / Weight
+//#Time
 
-#include "uc.h"
+#include "uc.hpp"
 
-double	ounce_gram(double ounce)
+double	d_h(double d)
 {
-	return (ounce * 28.3495);
+	return (24 * d);
 }
 
-double	gram_ounce(double gram)
+double	h_d(double h)
 {
-	return (doround(gram / 28.3495));
+	return (doround(h / 24));
 }
 
-double	pound_ounce(double pound)
+double	h_m(double h)
 {
-	return (pound * 16);
+	return (60 * h);
 }
 
-double	ounce_pound(double ounce)
+double	m_h(double m)
 {
-	return (doround(ounce / 16));
+	return (doround(m / 60));
 }
 
-double	kg_gram(double kg)
+double	m_s(double m)
 {
-	return (kg * 1000);
+	return (60 * m);
 }

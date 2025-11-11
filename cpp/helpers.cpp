@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass.c                                             :+:      :+:    :+:   */
+/*   helpers.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:00 by gzenner          ###   ########.fr       */
+/*   Created: 2025/11/10 13:24:51 by gzenner           #+#    #+#             */
+/*   Updated: 2025/11/11 16:32:26 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#Mass / Weight
+// Helpers
 
-#include "uc.h"
+#include "uc.hpp"
 
-double	ounce_gram(double ounce)
+char	*to_lower(char *s)
 {
-	return (ounce * 28.3495);
+	int		i;
+	char	*lower;
+
+	lower = malloc(strlen(s) + 1);
+	lower[strlen(s)] = 0;
+	i = 0;
+	while (i < strlen(s))
+	{
+		lower[i] = s[i];
+		if (s[i] >= 'A' && s[i] <= 'Z')
+			lower[i] += 32;
+		++i;
+	}
+	return (lower);
 }
 
-double	gram_ounce(double gram)
+double	doround(double v)
 {
-	return (doround(gram / 28.3495));
-}
-
-double	pound_ounce(double pound)
-{
-	return (pound * 16);
-}
-
-double	ounce_pound(double ounce)
-{
-	return (doround(ounce / 16));
-}
-
-double	kg_gram(double kg)
-{
-	return (kg * 1000);
+	return (v);
 }

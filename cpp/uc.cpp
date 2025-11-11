@@ -10,11 +10,11 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "uc.h"
+#include "uc.hpp"
 
 void	output(double v1, char *n1, double (*f)(double), char *n2)
 {
-	printf("%f %s = %f %s\n", v1, n1, f(v1), n2);
+	std::cout << v1 << " " << n1 << " = " << f(v1) << " " << n2 << "\n";
 }
 
 t_mathfuncptr	get_function(const char *key)
@@ -35,20 +35,19 @@ void	run(int ac, char **av)
 	t_main			data;
 	t_mathfuncptr	func_to_call;
 
-	printf("Unit Converter.\n");
+	std::cout << "Unit Converter.\n";
 	checkargs(ac);
 	save_values(av, &data);
 	func_to_call = get_function(data.str2);
 	if (func_to_call != NULL)
 		output(data.v1, data.u1, func_to_call, data.u2);
 	else
-		printf("Error: Function '%s' not found.\n", data.str2);
+		std::cout << "Error: Function '" << data.str2 << "%s' not found.\n";
 	free_data(&data);
 }
 
 int	main(int ac, char **av)
 {
-	//run(ac, av);
-	run_tests();
+	run(ac, av);
 	return (0);
 }

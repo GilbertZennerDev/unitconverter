@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass.c                                             :+:      :+:    :+:   */
+/*   distance.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:06:00 by gzenner          ###   ########.fr       */
+/*   Created: 2025/11/10 13:32:18 by gzenner           #+#    #+#             */
+/*   Updated: 2025/11/11 16:43:35 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#Mass / Weight
+//#Distance
 
-#include "uc.h"
+#include "uc.hpp"
 
-double	ounce_gram(double ounce)
+double	inch_cm(double i)
 {
-	return (ounce * 28.3495);
+	return (i * 2.54);
 }
 
-double	gram_ounce(double gram)
+double	cm_inch(double c)
 {
-	return (doround(gram / 28.3495));
+	return (doround(c / 2.54));
 }
 
-double	pound_ounce(double pound)
+double	foot_inch(double f)
 {
-	return (pound * 16);
+	return (f * 12);
 }
 
-double	ounce_pound(double ounce)
+double	inch_foot(double i)
 {
-	return (doround(ounce / 16));
+	return (doround(i / 12));
 }
 
-double	kg_gram(double kg)
+double	yard_feet(double y)
 {
-	return (kg * 1000);
+	return (y * 3);
 }

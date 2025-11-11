@@ -6,49 +6,53 @@
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:25:32 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/10 15:16:00 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:35:20 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UC_H
-#define UC_H
+# define UC_H
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <string.h>
+# include <stdio.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include <string.h>
 
-typedef double (*MathFuncPtr)(double);
+typedef double	(*t_mathfuncptr)(double);
 
-typedef struct {
-	const char	*key;
-	MathFuncPtr	func;
-}	DispatchEntry;
+typedef struct s_t_dispatchentry
+{
+	const char		*key;
+	t_mathfuncptr	func;
+}	t_dispatchentry;
 
-typedef struct	s_main {
+typedef struct s_main
+{
 	char	*u1;
 	char	*u2;
 	char	*str1;
 	char	*str2;
 	double	v1;
 	double	result;
-}	t_main;
+}			t_main;
 
-extern DispatchEntry g_function_map[];
+extern t_dispatchentry	g_function_map[];
 
 // Helpers
-
 char	*to_lower(char *s);
 double	doround(double v);
 void	checkargs(int ac);
 void	save_values(char **av, t_main *data);
 void	free_data(t_main *data);
 
+// Tester
+void	run_tests(void);
+void	output(double v1, char *n1, double (*f)(double), char *n2);
+
 // Show Units
-void	show_units();
+void	show_units(void);
 
 //#Temperature
-
 double	c_f(double c);
 double	f_c(double f);
 double	c_k(double c);
@@ -57,7 +61,6 @@ double	f_k(double f);
 double	k_f(double k);
 
 //#Time
-
 double	d_h(double d);
 double	h_d(double h);
 double	h_m(double h);
@@ -71,7 +74,6 @@ double	d_s(double d);
 double	s_d(double s);
 
 //#Distance
-
 double	inch_cm(double i);
 double	cm_inch(double c);
 double	foot_inch(double f);
@@ -88,7 +90,6 @@ double	mile_km(double mile);
 double	km_mile(double km);
 
 //#Mass / Weight
-
 double	ounce_gram(double ounce);
 double	gram_ounce(double gram);
 double	pound_ounce(double pound);
