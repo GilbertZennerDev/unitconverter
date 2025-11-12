@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   show_units.c                                       :+:      :+:    :+:   */
+/*   show_units.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:38:00 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/11 16:29:24 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/12 16:43:30 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,40 @@
 
 #include "uc.hpp"
 
-void	show_supported_units_time_distance(void)
+void	UnitConverter::show_supported_units_time_distance(void)
 {
-	printf("\n=== Supported Units ===");
-	printf("\n🌡️  Temperature:");
-	printf("  c  → Celsius");
-	printf("  f  → Fahrenheit");
-	printf("  k  → Kelvin");
-	printf("\n⏰  Time:");
-	printf("  d  → Days");
-	printf("  h  → Hours");
-	printf("  m  → Minutes");
-	printf("  s  → Seconds");
-	printf("\n📏  Distance:");
-	printf("  inch  → Inches");
-	printf("  cm    → Centimeters");
-	printf("  foot  → Feet");
-	printf("  feet  → Feet (alias);");
-	printf("  yard  → Yards");
-	printf("  mile  → Miles");
-	printf("  m     → Meters");
-	printf("  km    → Kilometers");
+	std::cout << "\n=== Supported Units ===";
+	std::cout << "\n🌡️  Temperature:";
+	std::cout << "  c  → Celsius";
+	std::cout << "  f  → Fahrenheit";
+	std::cout << "  k  → Kelvin";
+	std::cout << "\n⏰  Time:";
+	std::cout << "  d  → Days";
+	std::cout << "  h  → Hours";
+	std::cout << "  m  → Minutes";
+	std::cout << "  s  → Seconds";
+	std::cout << "\n📏  Distance:";
+	std::cout << "  inch  → Inches";
+	std::cout << "  cm    → Centimeters";
+	std::cout << "  foot  → Feet";
+	std::cout << "  feet  → Feet (alias;";
+	std::cout << "  yard  → Yards";
+	std::cout << "  mile  → Miles";
+	std::cout << "  m     → Meters";
+	std::cout << "  km    → Kilometers";
 }
 
-void	show_units(void)
+void	UnitConverter::show_units(void)
 {
 	show_supported_units_time_distance();
-	printf("\n⚖️  Mass / Weight:");
-	printf("  ounce     → Ounces");
-	printf("  gram      → Grams");
-	printf("  pound     → Pounds");
-	printf("  kg        → Kilograms");
-	printf("  ton       → Metric Tons");
-	printf("  ton_imp   → Imperial Tons");
-	printf("\n💡 Example usage:");
-	printf("  python unit_converter.py 10 c f");
-	printf("  python unit_converter.py 5 km mile\n");
+	std::cout << "\n⚖️  Mass / Weight:";
+	std::cout << "  ounce     → Ounces";
+	std::cout << "  gram      → Grams";
+	std::cout << "  pound     → Pounds";
+	std::cout << "  kg        → Kilograms";
+	std::cout << "  ton       → Metric Tons";
+	std::cout << "  ton_imp   → Imperial Tons";
+	std::cout << "\n💡 Example usage:";
+	std::cout << "  python unit_converter.py 10 c f";
+	std::cout << "  python unit_converter.py 5 km mile\n";
 }

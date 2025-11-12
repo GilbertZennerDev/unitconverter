@@ -17,6 +17,12 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <string.h>
+# include <iostream>
+# include <map>
+# include <functional>
+# include <stdexcept>
+
+using ConversionFunction = std::function<double(double)>;
 
 typedef double	(*t_mathfuncptr)(double);
 
@@ -28,10 +34,10 @@ typedef struct s_t_dispatchentry
 
 typedef struct s_main
 {
-	char	*u1;
-	char	*u2;
-	char	*str1;
-	char	*str2;
+	std::string u1;
+	std::string u2;
+	std::string str1;
+	std::string str2;
 	double	v1;
 	double	result;
 }			t_main;
@@ -40,67 +46,75 @@ extern t_dispatchentry	g_function_map[];
 
 class UnitConverter
 {
+	public:
+
+	static const std::map<std::string, ConversionFunction> s_function_map;
+	static t_mathfuncptr get_function(const std::string key);
+	double convert(const std::string& type, double value) const;
+
+	static void	show_supported_units_time_distance(void);
+	static void	run(int ac, char **av);
+
 	// Helpers
-	char	*to_lower(char *s);
-	double	doround(double v);
-	void	checkargs(int ac);
-	void	save_values(char **av, t_main *data);
-	void	free_data(t_main *data);
+	static	std::string	to_lower(char *s);
+	static	double	doround(double v);
+	static	void	checkargs(int ac);
+	static	void	save_values(char **av, t_main *data);
 
 	// Tester
-	void	run_tests(void);
-	void	output(double v1, char *n1, double (*f)(double), char *n2);
+	static	void	run_tests(void);
+	static	void	output(double v1, std::string n1, double (*f)(double), std::string n2);
 
 	// Show Units
-	void	show_units(void);
+	static	void	show_units(void);
 
 	//#Temperature
-	double	c_f(double c);
-	double	f_c(double f);
-	double	c_k(double c);
-	double	k_c(double k);
-	double	f_k(double f);
-	double	k_f(double k);
+	static	double	c_f(double c);
+	static	double	f_c(double f);
+	static	double	c_k(double c);
+	static	double	k_c(double k);
+	static	double	f_k(double f);
+	static	double	k_f(double k);
 
 	//#Time
-	double	d_h(double d);
-	double	h_d(double h);
-	double	h_m(double h);
-	double	m_h(double m);
-	double	m_s(double m);
-	double	s_m(double s);
-	double	s_h(double s);
-	double	d_m(double d);	
-	double	m_d(double m);
-	double	d_s(double d);
-	double	s_d(double s);
+	static	double	d_h(double d);
+	static	double	h_d(double h);
+	static	double	h_m(double h);
+	static	double	m_h(double m);
+	static	double	m_s(double m);
+	static	double	s_m(double s);
+	static	double	s_h(double s);
+	static	double	d_m(double d);	
+	static	double	m_d(double m);
+	static	double	d_s(double d);
+	static	double	s_d(double s);
 
 	//#Distance
-	double	inch_cm(double i);
-	double	cm_inch(double c);
-	double	foot_inch(double f);
-	double	inch_foot(double i);
-	double	yard_feet(double y);
-	double	feet_yard(double f);
-	double	mile_feet(double m);
-	double	feet_mile(double f);
-	double	m_cm(double m);
-	double	cm_m(double c);
-	double	km_m(double km);
-	double	m_km(double m);
-	double	mile_km(double mile);
-	double	km_mile(double km);
+	static	double	inch_cm(double i);
+	static	double	cm_inch(double c);
+	static	double	foot_inch(double f);
+	static	double	inch_foot(double i);
+	static	double	yard_feet(double y);
+	static	double	feet_yard(double f);
+	static	double	mile_feet(double m);
+	static	double	feet_mile(double f);
+	static	double	m_cm(double m);
+	static	double	cm_m(double c);
+	static	double	km_m(double km);
+	static	double	m_km(double m);
+	static	double	mile_km(double mile);
+	static	double	km_mile(double km);
 
 	//#Mass / Weight
-	double	ounce_gram(double ounce);
-	double	gram_ounce(double gram);
-	double	pound_ounce(double pound);
-	double	ounce_pound(double ounce);
-	double	kg_gram(double kg);
-	double	gram_kg(double gram);
-	double	ton_imp_pound(double ton);
-	double	pound_imp_ton(double pound);
-	double	ton_kg(double ton);
-	double	kg_ton(double kg);
+	static	double	ounce_gram(double ounce);
+	static	double	gram_ounce(double gram);
+	static	double	pound_ounce(double pound);
+	static	double	ounce_pound(double ounce);
+	static	double	kg_gram(double kg);
+	static	double	gram_kg(double gram);
+	static	double	ton_imp_pound(double ton);
+	static	double	pound_imp_ton(double pound);
+	static	double	ton_kg(double ton);
+	static	double	kg_ton(double kg);
 };
 #endif

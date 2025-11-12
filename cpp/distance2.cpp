@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   distance2.c                                        :+:      :+:    :+:   */
+/*   distance2.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:32:18 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/11 16:29:24 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/12 15:59:31 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 #include "uc.hpp"
 
-double	feet_yard(double f)
+double	UnitConverter::feet_yard(double f)
 {
 	return (doround(f / 3));
 }
 
-double	mile_feet(double m)
+double	UnitConverter::mile_feet(double m)
 {
 	return (m * 5280);
 }
 
-double	feet_mile(double f)
+double	UnitConverter::feet_mile(double f)
 {
 	return (doround(f / 5280));
 }
 
-double	m_cm(double m)
+double	UnitConverter::m_cm(double m)
 {
 	return (m * 100);
 }
 
-double	cm_m(double c)
+double	UnitConverter::cm_m(double c)
 {
 	return (doround(c / 100));
 }

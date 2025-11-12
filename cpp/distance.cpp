@@ -6,7 +6,7 @@
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:32:18 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/11 16:43:35 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/12 15:59:49 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 #include "uc.hpp"
 
-double	inch_cm(double i)
+double	UnitConverter::inch_cm(double i)
 {
 	return (i * 2.54);
 }
 
-double	cm_inch(double c)
+double	UnitConverter::cm_inch(double c)
 {
 	return (doround(c / 2.54));
 }
 
-double	foot_inch(double f)
+double	UnitConverter::foot_inch(double f)
 {
 	return (f * 12);
 }
 
-double	inch_foot(double i)
+double	UnitConverter::inch_foot(double i)
 {
 	return (doround(i / 12));
 }
 
-double	yard_feet(double y)
+double	UnitConverter::yard_feet(double y)
 {
 	return (y * 3);
 }

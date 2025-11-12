@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mass2.c                                            :+:      :+:    :+:   */
+/*   mass2.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gzenner <gzenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:34:24 by gzenner           #+#    #+#             */
-/*   Updated: 2025/11/11 16:29:24 by gzenner          ###   ########.fr       */
+/*   Updated: 2025/11/12 15:59:31 by gzenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 #include "uc.hpp"
 
-double	gram_kg(double gram)
+double	UnitConverter::gram_kg(double gram)
 {
 	return (doround(gram / 1000));
 }
 
-double	ton_imp_pound(double ton)
+double	UnitConverter::ton_imp_pound(double ton)
 {
 	return (ton * 2000);
 }
 
-double	pound_imp_ton(double pound)
+double	UnitConverter::pound_imp_ton(double pound)
 {
 	return (doround(pound / 2000));
 }
 
-double	ton_kg(double ton)
+double	UnitConverter::ton_kg(double ton)
 {
 	return (ton * 1000);
 }
 
-double	kg_ton(double kg)
+double	UnitConverter::kg_ton(double kg)
 {
 	return (doround(kg / 1000));
 }
