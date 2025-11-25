@@ -12,7 +12,7 @@
 
 #include "uc.hpp"
 
-double	UnitConverter::convert(const std::string& type, double value) const {
+double	UnitConverter::convert(const std::string& type, double value){
         // Now you can use std::map methods on s_function_map
         auto it = s_function_map.find(type); // FIX: using .find() is now valid
         if (it != s_function_map.end()) {    // FIX: using .end() is now valid

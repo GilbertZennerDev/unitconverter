@@ -17,17 +17,24 @@ void	UnitConverter::output(double v1, std::string n1, double (*f)(double), std::
 	std::cout << v1 << " " << n1 << " = " << f(v1) << " " << n2 << "\n";
 }
 
-t_mathfuncptr	UnitConverter::get_function(const std::string key)
+t_mathfuncptr UnitConverter::get_function(const std::string key)
 {
-	int	i;
+    // In uc.cpp, inside get_function:
+    auto it = s_function_map.find(key);
+        
+    if (it != s_function_map.end()) {
+        // The correct way to get the pointer:
+        // We explicitly cast the result of target() to the expected type, 
+        // and rely on the target function to correctly retrieve the type.
+        t_mathfuncptr func_ptr = it->second.target<t_mathfuncptr>();
 
-	i = 0;
-	while (s_function_map[i].key != NULL)
-	{
-        if (s_function_map[i].key == key)
-			return (s_function_map[i].func);
-	}
-	return (NULL);
+        if (func_ptr) {
+            return func_ptr;
+        }
+    }
+    
+    // Key not found, or the std::function held a lambda/functor instead of a raw pointer.
+    return nullptr; 
 }
 
 void	UnitConverter::run(int ac, char **av)

@@ -50,7 +50,7 @@ class UnitConverter
 
 	static const std::map<std::string, ConversionFunction> s_function_map;
 	static t_mathfuncptr get_function(const std::string key);
-	double convert(const std::string& type, double value) const;
+	double convert(const std::string& type, double value);
 
 	static void	show_supported_units_time_distance(void);
 	static void	run(int ac, char **av);
