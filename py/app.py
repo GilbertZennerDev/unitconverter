@@ -134,14 +134,13 @@ def show_units():
 	print("  python unit_converter.py 10 c f")
 	print("  python unit_converter.py 5 km mile\n")
 
-
 #Tester
 
 def test(v1, n1, func, n2):
 	print(v1, n1.upper(), '=', func(v1), n2.upper())
 
 def chk(u1, v1, u2, v2):
-	return u1 == v1 and u2 == v2
+	return (u1 == v1 and u2 == v2)
 
 def doround(v):
 	return round(v, 2)
@@ -149,12 +148,13 @@ def doround(v):
 # (The actual Program)
 def run():
 	USAGE = "Put args like 32 C F"
-	if len(sys.argv) != 4:
-		print(USAGE); show_units(); exit();
-	u1 = sys.argv[2].lower()
-	u2 = sys.argv[3].lower()
+	av = sys.argv
+	ac = len(av)
+	if ac != 4: print(USAGE); show_units(); exit();
+	u1 = av[2].lower()
+	u2 = av[3].lower()
 	try:
-		v1 = float(sys.argv[1])
+		v1 = float(av[1])
 	except Exception as e:
 		print(e); exit()
 
@@ -213,75 +213,5 @@ def run():
 	
 	if f: test(v1, u1, f, u2)
 	else: print("Your input was not valid"); exit();
-run()
 
-################################################
-
-#test(1, 'D', d_s, 's')
-#test(d_s(1), 's', s_d, 'D')
-
-#test(1, 'D', d_m, 'min')
-#test(d_m(1), 'min', m_d, 'D')
-
-#test(1, 'ton', ton_kg, 'kg')
-#test(ton_kg(1), 'kg', kg_ton, 'ton')
-
-#test(1, 'ton', ton_imp_pound, 'pound')
-#test(ton_imp_pound(1), 'pound', pound_imp_ton, 'ton')
-
-#test(1, 'kg', kg_gram, 'gram')
-#test(kg_gram(1), 'gram', gram_kg, 'kg')
-
-#test(1, 'pound', pound_ounce, 'ounce')
-#test(pound_ounce(1), 'ounce', ounce_pound, 'pound')
-
-#test(1, 'ounce', ounce_gram2, 'gram')
-#test(ounce_gram(1), 'gram', gram_ounce2, 'ounce')
-
-#test(1, 'ounce', ounce_gram, 'gram')
-#test(ounce_gram(1), 'gram', gram_ounce, 'ounce')
-
-#test(1, 'inch', inch_cm, 'cm')
-#test(2.54, 'cm', cm_inch, 'inch')
-
-#test(1, 'foot', foot_inch, 'inches')
-#test(12, 'inches', inch_foot, 'foot')
-
-#test(1, 'yard', yard_feet, 'feet')
-#test(3, 'feet', feet_yard, 'yards')
-
-#test(1, 'mile', mile_feet, 'feet')
-#test(mile_feet(1), 'feet', feet_mile, 'mile')
-
-#test(1, 'm', m_cm, 'cm')
-#test(m_cm(1), 'cm', cm_m, 'm')
-
-#test(1, 'km', km_m, 'm')
-#test(km_m(1), 'm', m_km, 'km')
-
-#test(1, 'mile', mile_km, 'km')
-#test(mile_km(1), 'km', km_mile, 'mile')
-
-#test(32, 'C', c_f, 'F')
-#test(89.6, 'F', f_c, 'C')
-
-#test(32, 'C', c_k, 'K')
-#test(305.15, 'K', k_c, 'C')
-
-#test(32, 'C', c_k, 'K')
-#test(305.15, 'K', k_c, 'C')
-
-#test(89.6, 'F', f_k, 'K')
-#test(305.15, 'K', k_f, 'F')
-
-#test(3, 'D', d_h, 'H')
-#test(72, 'H', h_d, 'D')
-
-#test(5, 'H', h_m, 'M')
-#test(300, 'M', m_h, 'H')
-
-#test(5, 'm', m_s, 's')
-#test(300, 's', s_m, 'm')
-
-#test(1, 'd', d_s, 's')
-#test(86400, 's', s_d, 'd')
+if __name__ == "__main__": run()
